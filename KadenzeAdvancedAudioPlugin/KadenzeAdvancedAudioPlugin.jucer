@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="fNbJW9" name="KadenzeAdvancedAudioPlugin" projectType="audioplug"
+              useAppConfig="0" addUsingNamespaceToJuceHeader="1" displaySplashScreen="1"
+              jucerFormatVersion="1" pluginFormats="buildAU,buildVST3" pluginManufacturer="Corey">
+  <MAINGROUP id="OWx5io" name="KadenzeAdvancedAudioPlugin">
+    <GROUP id="{CE2E59A8-6CD8-DA80-6198-A20164EDF344}" name="Helpers">
+      <FILE id="aUIu4g" name="KAPAudioHelpers.h" compile="0" resource="0"
+            file="Source/KAPAudioHelpers.h"/>
+    </GROUP>
+    <GROUP id="{78B37F76-C528-7671-6C40-89A635871A88}" name="DSP">
+      <FILE id="LA3Tbx" name="KAPDelay.cpp" compile="1" resource="0" file="Source/KAPDelay.cpp"/>
+      <FILE id="dvZCvh" name="KAPDelay.h" compile="0" resource="0" file="Source/KAPDelay.h"/>
+      <FILE id="A8EQL1" name="KAPGain.cpp" compile="1" resource="0" file="Source/KAPGain.cpp"/>
+      <FILE id="C2NLEf" name="KAPGain.h" compile="0" resource="0" file="Source/KAPGain.h"/>
+      <FILE id="xeckR6" name="KAPLfo.cpp" compile="1" resource="0" file="Source/KAPLfo.cpp"/>
+      <FILE id="UJNsxx" name="KAPLfo.h" compile="0" resource="0" file="Source/KAPLfo.h"/>
+    </GROUP>
+    <GROUP id="{379BD181-8707-C73B-863B-34BBBE1AC382}" name="Source">
+      <FILE id="uKbrww" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="qxRXBr" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="jTDvED" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="uG573h" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="KadenzeAdvancedAudioPlugin"
+                       enablePluginBinaryCopyStep="1"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="KadenzeAdvancedAudioPlugin"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/juce6-1-4/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+  </MODULES>
+</JUCERPROJECT>

@@ -183,7 +183,7 @@ void KadenzeAdvancedAudioPluginAudioProcessor::processBlock (juce::AudioBuffer<f
 
         mDelay[channel]->process(
             channelData,
-            0.25,
+            0.1,
             0.5,
             1.0,
             mLFO[channel]->getBuffer(),

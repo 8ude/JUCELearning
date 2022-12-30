@@ -90,19 +90,19 @@ double KAPDelay::getInterpolatedSample(float inDelayTimeInSamples)
 
     if (readPosition < 0.0f)
     {
-        readPosition = maxBufferSize;
+        readPosition = readPosition + maxBufferSize;
     }
 
     int index_y0 = (int)readPosition - 1;
-    if (index_y0 <= 0)
+    if (index_y0 < 0)
     {
-        index_y0 += maxBufferSize;
+        index_y0 = index_y0 + maxBufferSize;
     }
     int index_y1 = (int)readPosition; 
 
     if (index_y1 >= maxBufferSize)
     {
-        index_y1 -= maxBufferSize;
+        index_y1 = index_y1 - maxBufferSize;
     }
 
     const float sample_y0 = mBuffer[index_y0];

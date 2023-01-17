@@ -5,6 +5,8 @@
               jucerFormatVersion="1" pluginFormats="buildAU,buildVST3" pluginManufacturer="Corey">
   <MAINGROUP id="OWx5io" name="KadenzeAdvancedAudioPlugin">
     <GROUP id="{CE2E59A8-6CD8-DA80-6198-A20164EDF344}" name="Helpers">
+      <FILE id="tWTQoK" name="KAPInterfaceDefines.h" compile="0" resource="0"
+            file="Source/KAPInterfaceDefines.h"/>
       <FILE id="aUIu4g" name="KAPAudioHelpers.h" compile="0" resource="0"
             file="Source/KAPAudioHelpers.h"/>
     </GROUP>

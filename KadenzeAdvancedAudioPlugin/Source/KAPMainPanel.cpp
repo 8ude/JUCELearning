@@ -9,3 +9,12 @@
 */
 
 #include "KAPMainPanel.h"
+
+KAPMainPanel::KAPMainPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor): KAPPanelBase(inProcessor)
+{
+    setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+}
+KAPMainPanel::~KAPMainPanel()
+{
+
+}

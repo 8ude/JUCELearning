@@ -14,6 +14,8 @@
 
 #include "PluginProcessor.h"
 
+#include "KAPInterfaceDefines.h"
+
 class KAPPanelBase : public Component
 {
 public:

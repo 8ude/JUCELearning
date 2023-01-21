@@ -9,3 +9,6 @@
 */
 
 #include "KAPCenterPanelMenuBar.h"
+
+#include "KAPPanelBase.h"
+

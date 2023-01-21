@@ -26,6 +26,6 @@ void KAPPanelBase::paint(Graphics& g)
     g.fillAll();
 
     g.setColour(Colours::black);
-    g.drawRect(0, 0, getWidth(), getHeight(), 2);
+    g.drawRect(0, 0, getWidth(), getHeight());
 
 }

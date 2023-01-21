@@ -11,7 +11,7 @@
 #pragma once
 //helpers are being used to change global values app-wide
 
-#define MAIN_PANEL_WIDTH    700
+#define MAIN_PANEL_WIDTH    750
 #define MAIN_PANEL_HEIGHT   300
 
 #define TOP_PANEL_WIDTH     MAIN_PANEL_WIDTH

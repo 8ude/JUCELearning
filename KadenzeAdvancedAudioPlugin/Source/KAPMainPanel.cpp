@@ -25,6 +25,15 @@ KAPMainPanel::KAPMainPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor
     mOutputGainPanel = new KAPGainPanel(inProcessor);
     mOutputGainPanel->setTopLeftPosition(MAIN_PANEL_WIDTH - GAIN_PANEL_WIDTH, TOP_PANEL_HEIGHT);
     addAndMakeVisible(mOutputGainPanel);
+
+    mCenterPanelMenuBar = new KAPCenterPanelMenuBar(inProcessor);
+    mCenterPanelMenuBar->setTopLeftPosition(GAIN_PANEL_WIDTH, TOP_PANEL_HEIGHT);
+    addAndMakeVisible(mCenterPanelMenuBar);
+
+
+    mCenterPanel = new KAPCenterPanel(inProcessor);
+    mCenterPanel->setTopLeftPosition(GAIN_PANEL_WIDTH, TOP_PANEL_HEIGHT);
+    addAndMakeVisible(mCenterPanel);
 }
 KAPMainPanel::~KAPMainPanel()
 {

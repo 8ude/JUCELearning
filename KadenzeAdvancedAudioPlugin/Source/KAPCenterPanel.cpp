@@ -9,3 +9,18 @@
 */
 
 #include "KAPCenterPanel.h"
+
+KAPCenterPanel::KAPCenterPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor) : KAPPanelBase(inProcessor)
+{
+
+}
+
+KAPCenterPanel::~KAPCenterPanel()
+{
+
+}
+
+void KAPCenterPanel::paint(Graphics& g)
+{
+    KAPPanelBase::paint(g);
+}

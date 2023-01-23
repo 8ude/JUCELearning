@@ -9,3 +9,13 @@
 */
 
 #pragma once
+#include "KAPPanelBase.h"
+
+class KAPEffectsPanel : public KAPPanelBase
+{
+public:
+    KAPEffectsPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor);
+    ~KAPEffectsPanel();
+private:
+    void paint(Graphics& g) override;
+};

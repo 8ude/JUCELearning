@@ -12,6 +12,10 @@
 
 #include "KAPPanelBase.h"
 
+//both menu bar and Fx panel are going to be essentially children of the Center Panel
+#include "KAPCenterPanelMenuBar.h"
+#include "KAPEffectsPanel.h"
+
 class KAPCenterPanel : public KAPPanelBase
 {
 public:
@@ -19,5 +23,7 @@ public:
     ~KAPCenterPanel();
 
 private:
+    ScopedPointer<KAPCenterPanelMenuBar> mMenuBar;
+    ScopedPointer<KAPEffectsPanel> mEffectsPanel;
     void paint(Graphics& g) override;
 };

@@ -57,13 +57,17 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    AudioProcessorValueTreeState parameters;
+
 private:
     //==============================================================================
     /** interanal **/
     
     void initializeDSP();
 
-    //this doesn't seem to be working?
+    void initializeParameters();
+
+    //scoped pointer doesn't seem to be working here?
     //ScopedPointer<KAPGain> mGain[2]
 
     std::unique_ptr<KAPGain> mGain[2];

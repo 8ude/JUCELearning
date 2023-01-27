@@ -8,7 +8,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-
+#include "KAPParameters.h"
 
 //==============================================================================
 KadenzeAdvancedAudioPluginAudioProcessor::KadenzeAdvancedAudioPluginAudioProcessor()
@@ -20,9 +20,12 @@ KadenzeAdvancedAudioPluginAudioProcessor::KadenzeAdvancedAudioPluginAudioProcess
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
+    parameters (*this, nullptr)  //this implements the value tree state. second arg is for the undo manager- maybe look this up?
 #endif
 {
+    initializeParameters();
+
     initializeDSP();
 }
 
@@ -224,6 +227,21 @@ void KadenzeAdvancedAudioPluginAudioProcessor::initializeDSP()
         mGain[i] = std::unique_ptr<KAPGain>( new KAPGain());
         mDelay[i] = std::unique_ptr<KAPDelay>(new KAPDelay());
         mLFO[i] = std::unique_ptr<KAPLfo>(new KAPLfo());
+    }
+}
+
+void KadenzeAdvancedAudioPluginAudioProcessor::initializeParameters()
+{
+    for (int i = 0; i < kParameter_TotalNumParameters; i++)
+    {
+        parameters.createAndAddParameter(
+            KAPParameterID[i],
+            KAPParameterID[i],
+            KAPParameterID[i],
+            NormalisableRange<float>(0.0f, 1.0f),
+            0.5f,
+            nullptr,
+            nullptr);
     }
 }
 

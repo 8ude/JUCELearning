@@ -173,22 +173,22 @@ void KadenzeAdvancedAudioPluginAudioProcessor::processBlock (juce::AudioBuffer<f
 
         mGain[channel]->process(
             channelData,                     
-            0.5, 
+            getParameter(kParameter_InputGain), 
             channelData, 
             buffer.getNumSamples());
 
-        float rate = (channel == 0) ? 0 : 0.25f;
+        float rate = (channel == 0) ? 0 : getParameter(kParameter_ModulationRate);
 
         mLFO[channel]->process(
             rate, 
-            1.0, 
+            getParameter(kParameter_ModulationDepth), 
             buffer.getNumSamples());
 
         mDelay[channel]->process(
             channelData,
-            0.1,
-            0.5,
-            1.0,
+            getParameter(kParameter_DelayTime),
+            getParameter(kParameter_DelayFeedback),
+            getParameter(kParameter_DelayWetDry),
             mLFO[channel]->getBuffer(),
             channelData,
             buffer.getNumSamples());
@@ -234,7 +234,7 @@ void KadenzeAdvancedAudioPluginAudioProcessor::initializeParameters()
 {
     for (int i = 0; i < kParameter_TotalNumParameters; i++)
     {
-        parameters.createAndAddParameter(
+        parameters.createAndAddParameter(  //juce function for creating parameters
             KAPParameterID[i],
             KAPParameterID[i],
             KAPParameterID[i],
@@ -242,7 +242,9 @@ void KadenzeAdvancedAudioPluginAudioProcessor::initializeParameters()
             0.5f,
             nullptr,
             nullptr);
+        
     }
+    parameters.state = ValueTree(KAPParameterID[0]); //might be necessary to initialize the value tree state?
 }
 
 //==============================================================================

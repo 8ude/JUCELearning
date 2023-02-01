@@ -62,10 +62,9 @@ public:
 private:
     //==============================================================================
     /** interanal **/
-    
-    void initializeDSP();
-
+    //important to initialize params before DSP otherwise there are null pointers
     void initializeParameters();
+    void initializeDSP();
 
     //scoped pointer doesn't seem to be working here?
     //ScopedPointer<KAPGain> mGain[2]

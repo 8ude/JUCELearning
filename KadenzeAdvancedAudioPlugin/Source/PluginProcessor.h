@@ -73,5 +73,5 @@ private:
     std::unique_ptr<KAPDelay> mDelay[2];
     std::unique_ptr<KAPLfo> mLFO[2];
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KadenzeAdvancedAudioPluginAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(KadenzeAdvancedAudioPluginAudioProcessor);
 };

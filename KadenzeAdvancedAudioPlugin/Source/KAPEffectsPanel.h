@@ -11,6 +11,8 @@
 #pragma once
 #include "KAPPanelBase.h"
 
+#include "KAPParameterSlider.h"
+
 enum KAPFxPanelStyle
 {
     kKAPFxPanelStyle_Delay,
@@ -24,11 +26,14 @@ public:
     KAPEffectsPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor);
     ~KAPEffectsPanel();
 
+    void paint(Graphics& g) override;
+
     void setFxPanelStyle(KAPFxPanelStyle inStyle);
 
 private:
 
     KAPFxPanelStyle mStyle;
 
-    void paint(Graphics& g) override;
+    OwnedArray<KAPParameterSlider> mSliders;
+
 };

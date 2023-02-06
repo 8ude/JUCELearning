@@ -9,6 +9,7 @@
 */
 
 #include "KAPMainPanel.h"
+#include "KAPParameters.h"
 
 KAPMainPanel::KAPMainPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor): KAPPanelBase(inProcessor)
 {
@@ -20,10 +21,12 @@ KAPMainPanel::KAPMainPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor
 
     mInputGainPanel = new KAPGainPanel(inProcessor);
     mInputGainPanel->setTopLeftPosition(0, TOP_PANEL_HEIGHT);
+    mInputGainPanel->setParameterID(kParameter_InputGain);
     addAndMakeVisible(mInputGainPanel);
 
     mOutputGainPanel = new KAPGainPanel(inProcessor);
     mOutputGainPanel->setTopLeftPosition(MAIN_PANEL_WIDTH - GAIN_PANEL_WIDTH, TOP_PANEL_HEIGHT);
+    mOutputGainPanel->setParameterID(kParameter_OutputGain);
     addAndMakeVisible(mOutputGainPanel);
 
     mCenterPanel = new KAPCenterPanel(inProcessor);

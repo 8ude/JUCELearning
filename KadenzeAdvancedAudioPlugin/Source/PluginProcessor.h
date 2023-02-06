@@ -69,7 +69,8 @@ private:
     //scoped pointer doesn't seem to be working here?
     //ScopedPointer<KAPGain> mGain[2]
 
-    std::unique_ptr<KAPGain> mGain[2];
+    std::unique_ptr<KAPGain> mInputGain[2];
+    std::unique_ptr<KAPGain> mOutputGain[2];
     std::unique_ptr<KAPDelay> mDelay[2];
     std::unique_ptr<KAPLfo> mLFO[2];
 

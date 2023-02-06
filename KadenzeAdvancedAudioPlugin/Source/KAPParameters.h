@@ -30,7 +30,7 @@ static String KAPParameterID[kParameter_TotalNumParameters] =
     "Feedback",
     "Wet Dry",
     "Type",
-    "Output Gain"
+    "Output Gain",
     "Modulation Rate",
     "Modulation Depth",
 };

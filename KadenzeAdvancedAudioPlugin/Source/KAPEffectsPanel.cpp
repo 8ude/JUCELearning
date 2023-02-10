@@ -9,6 +9,7 @@
 */
 
 #include "KAPEffectsPanel.h"
+#include "KAPParameters.h"
 
 KAPEffectsPanel::KAPEffectsPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor) :         
     KAPPanelBase(inProcessor),
@@ -25,6 +26,50 @@ KAPEffectsPanel::~KAPEffectsPanel()
 void KAPEffectsPanel::setFxPanelStyle(KAPFxPanelStyle inStyle)
 {
     mStyle = inStyle;
+    mSliders.clear();
+
+    const int slider_size = 56;
+    int x = 130;
+    int y = (getHeight() * 0.5) - (slider_size * 0.5);
+
+    switch (mStyle)
+    {
+    case(kKAPFxPanelStyle_Delay): {
+
+        //ADD TIME PARAMETER
+        KAPParameterSlider* time = new KAPParameterSlider(mProcessor->parameters, KAPParameterID[kParameter_DelayTime]);
+        time->setBounds(x, y, slider_size, slider_size);
+
+        addAndMakeVisible(time);
+
+        mSliders.add(time);
+        
+        x = x + (slider_size * 2);
+
+        //ADD FEEDBACK PARAMETER
+        KAPParameterSlider* feedback = new KAPParameterSlider(mProcessor->parameters, KAPParameterID[kParameter_DelayFeedback]);
+        feedback->setBounds(x, y, slider_size, slider_size);
+        addAndMakeVisible(feedback);
+        mSliders.add(feedback);
+
+        x = x + (slider_size * 2);
+
+        //ADD WET DRY PARAMETER
+        KAPParameterSlider* wetdry = new KAPParameterSlider(mProcessor->parameters, KAPParameterID[kParameter_DelayWetDry]);
+        wetdry->setBounds(x, y, slider_size, slider_size);
+        addAndMakeVisible(wetdry);
+        mSliders.add(wetdry);
+
+    } break;
+    case (kKAPFxPanelStyle_Chorus): {
+
+    } break;
+    case (kKAPFxPanelStyle_TotalNumStyles): {
+        //THIS IS BAD
+
+        jassertfalse;
+    } break;
+    }
 }
 
 void KAPEffectsPanel::paint(Graphics& g)

@@ -12,10 +12,10 @@
 #include "KAPParameters.h"
 
 KAPEffectsPanel::KAPEffectsPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor) :         
-    KAPPanelBase(inProcessor),
-    mStyle(kKAPFxPanelStyle_Delay)
+    KAPPanelBase(inProcessor)
 {
     setSize(EFFECTS_PANEL_WIDTH, EFFECTS_PANEL_HEIGHT);
+    setFxPanelStyle(kKAPFxPanelStyle_Delay);
 }
 
 KAPEffectsPanel::~KAPEffectsPanel()
@@ -62,6 +62,29 @@ void KAPEffectsPanel::setFxPanelStyle(KAPFxPanelStyle inStyle)
 
     } break;
     case (kKAPFxPanelStyle_Chorus): {
+
+        //ADD RATE PARAMETER
+        KAPParameterSlider* rate = new KAPParameterSlider(mProcessor->parameters, KAPParameterID[kParameter_ModulationRate]);
+        rate->setBounds(x, y, slider_size, slider_size);
+        addAndMakeVisible(rate);
+        mSliders.add(rate);
+
+        x = x + (slider_size * 2);
+
+        //ADD DEPTH PARAMETER
+        KAPParameterSlider* depth = new KAPParameterSlider(mProcessor->parameters, KAPParameterID[kParameter_ModulationDepth]);
+        depth->setBounds(x, y, slider_size, slider_size);
+        addAndMakeVisible(depth);
+        mSliders.add(depth);
+
+        x = x + (slider_size * 2);
+
+        //WET DRY IS THE SAME AS BEFORE
+        KAPParameterSlider* wetdry = new KAPParameterSlider(mProcessor->parameters, KAPParameterID[kParameter_DelayWetDry]);
+        wetdry->setBounds(x, y, slider_size, slider_size);
+        addAndMakeVisible(wetdry);
+        mSliders.add(wetdry);
+
 
     } break;
     case (kKAPFxPanelStyle_TotalNumStyles): {

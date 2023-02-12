@@ -15,6 +15,8 @@
             file="Source/KAPParameterSlider.h"/>
     </GROUP>
     <GROUP id="{CE2E59A8-6CD8-DA80-6198-A20164EDF344}" name="Helpers">
+      <FILE id="gI61p4" name="KAPHelperFunctions.h" compile="0" resource="0"
+            file="Source/KAPHelperFunctions.h"/>
       <FILE id="F4cpoe" name="KAPParameters.h" compile="0" resource="0" file="Source/KAPParameters.h"/>
       <FILE id="tWTQoK" name="KAPInterfaceDefines.h" compile="0" resource="0"
             file="Source/KAPInterfaceDefines.h"/>

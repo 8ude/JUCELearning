@@ -11,6 +11,7 @@
 #pragma once
 
 #include "KAPPanelBase.h"
+#include "KAPParameterComboBox.h"
 
 class KAPCenterPanelMenuBar : public KAPPanelBase
 {
@@ -19,5 +20,6 @@ public:
     ~KAPCenterPanelMenuBar();
 
 private:
-    void paint(Graphics& g) override;
+
+    ScopedPointer<KAPParameterComboBox> mEffectsTypeComboBox;
 };

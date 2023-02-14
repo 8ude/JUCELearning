@@ -11,6 +11,8 @@
 #pragma once
 #include "JuceHeader.h"
 
+
+// used to draw+position label text for control knobs
 inline void paintComponentLabel(Graphics& g, Component* inComponent)
 {
     const int x = inComponent->getX() - (inComponent->getWidth() * 0.25f);

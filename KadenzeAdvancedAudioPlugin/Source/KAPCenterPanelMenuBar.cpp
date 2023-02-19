@@ -11,8 +11,6 @@
 #include "KAPCenterPanelMenuBar.h"
 #include "KAPParameters.h"
 
-
-
 KAPCenterPanelMenuBar::KAPCenterPanelMenuBar(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor) : KAPPanelBase(inProcessor)
 {
     setSize(CENTER_PANEL_MENU_BAR_WIDTH, CENTER_PANEL_MENU_BAR_HEIGHT);
@@ -22,12 +20,24 @@ KAPCenterPanelMenuBar::KAPCenterPanelMenuBar(KadenzeAdvancedAudioPluginAudioProc
     mEffectsTypeComboBox = new KAPParameterComboBox(mProcessor->parameters, KAPParameterID[kParameter_DelayType]);
 
     mEffectsTypeComboBox->setBounds(getWidth() - width, 0, width, getHeight());
-    
+    //need to make sure to distinguish between the Item ID and the Item index
+    mEffectsTypeComboBox->addItem("DELAY", 1);
+    mEffectsTypeComboBox->addItem("CHORUS", 2);
+    mEffectsTypeComboBox->setSelectedItemIndex(0, dontSendNotification);
     addAndMakeVisible(mEffectsTypeComboBox);
 }
 
 KAPCenterPanelMenuBar::~KAPCenterPanelMenuBar()
 {
 
+}
+
+void KAPCenterPanelMenuBar::addEffectsTypeComboBoxListener(KAPEffectsPanel* inListener)
+{
+    mEffectsTypeComboBox->addListener(inListener);
+}
+void KAPCenterPanelMenuBar::removeEffectsTypeComboBoxListener(KAPEffectsPanel* inListener)
+{
+    mEffectsTypeComboBox->removeListener(inListener);
 }
 

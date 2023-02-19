@@ -12,12 +12,16 @@
 
 #include "KAPPanelBase.h"
 #include "KAPParameterComboBox.h"
+#include "KAPEffectsPanel.h"
 
 class KAPCenterPanelMenuBar : public KAPPanelBase
 {
 public:
     KAPCenterPanelMenuBar(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor);
     ~KAPCenterPanelMenuBar();
+
+    void addEffectsTypeComboBoxListener(KAPEffectsPanel* inListener);
+    void removeEffectsTypeComboBoxListener(KAPEffectsPanel* inListener);
 
 private:
 

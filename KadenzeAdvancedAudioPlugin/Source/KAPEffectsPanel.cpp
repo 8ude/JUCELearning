@@ -24,7 +24,7 @@ KAPEffectsPanel::~KAPEffectsPanel()
 
 }
 
-void KAPEffectsPanel::setFxPanelStyle(KAPFxPanelStyle inStyle)
+void KAPEffectsPanel::setFxPanelStyle(KAPEffectsPanelStyle inStyle)
 {
     mStyle = inStyle;
     mSliders.clear();
@@ -120,4 +120,11 @@ void KAPEffectsPanel::paint(Graphics& g)
     {
         paintComponentLabel(g, mSliders[i]);
     }
+}
+
+void KAPEffectsPanel::comboBoxChanged(ComboBox* comboBoxThatHasChanged)
+{
+    KAPEffectsPanelStyle style = (KAPEffectsPanelStyle)comboBoxThatHasChanged->getSelectedItemIndex();
+
+    setFxPanelStyle(style);
 }

@@ -13,14 +13,16 @@
 
 #include "KAPParameterSlider.h"
 
-enum KAPFxPanelStyle
+enum KAPEffectsPanelStyle
 {
     kKAPFxPanelStyle_Delay,
     kKAPFxPanelStyle_Chorus,
     kKAPFxPanelStyle_TotalNumStyles
 };
 
-class KAPEffectsPanel : public KAPPanelBase
+class KAPEffectsPanel : 
+    public KAPPanelBase,
+    public ComboBox::Listener
 {
 public:
     KAPEffectsPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProcessor);
@@ -28,11 +30,13 @@ public:
 
     void paint(Graphics& g) override;
 
-    void setFxPanelStyle(KAPFxPanelStyle inStyle);
+    void setFxPanelStyle(KAPEffectsPanelStyle inStyle);
+
+    void comboBoxChanged(ComboBox* comboBoxThatHasChanged) override;
 
 private:
 
-    KAPFxPanelStyle mStyle;
+    KAPEffectsPanelStyle mStyle;
 
     OwnedArray<KAPParameterSlider> mSliders;
 

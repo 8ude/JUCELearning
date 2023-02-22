@@ -23,7 +23,7 @@ KAPCenterPanelMenuBar::KAPCenterPanelMenuBar(KadenzeAdvancedAudioPluginAudioProc
     //need to make sure to distinguish between the Item ID and the Item index
     mEffectsTypeComboBox->addItem("DELAY", 1);
     mEffectsTypeComboBox->addItem("CHORUS", 2);
-    mEffectsTypeComboBox->setSelectedItemIndex(0, dontSendNotification);
+    mEffectsTypeComboBox->setSelectedItemIndex((int)mProcessor->getParameter(kParameter_DelayType), dontSendNotification);
     addAndMakeVisible(mEffectsTypeComboBox);
 }
 

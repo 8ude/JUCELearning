@@ -16,7 +16,10 @@ KAPEffectsPanel::KAPEffectsPanel(KadenzeAdvancedAudioPluginAudioProcessor* inPro
     KAPPanelBase(inProcessor)
 {
     setSize(EFFECTS_PANEL_WIDTH, EFFECTS_PANEL_HEIGHT);
-    setFxPanelStyle(kKAPFxPanelStyle_Delay);
+
+    const int currentStyle = (int)mProcessor->getParameter(kParameter_DelayType);
+
+    setFxPanelStyle((KAPEffectsPanelStyle)currentStyle);
 }
 
 KAPEffectsPanel::~KAPEffectsPanel()
@@ -94,6 +97,9 @@ void KAPEffectsPanel::setFxPanelStyle(KAPEffectsPanelStyle inStyle)
         jassertfalse;
     } break;
     }
+
+    repaint();
+
 }
 
 void KAPEffectsPanel::paint(Graphics& g)

@@ -27,7 +27,7 @@ KAPCenterPanel::KAPCenterPanel(KadenzeAdvancedAudioPluginAudioProcessor* inProce
 
 KAPCenterPanel::~KAPCenterPanel()
 {
-
+    mMenuBar->removeEffectsTypeComboBoxListener(mEffectsPanel);
 }
 
 void KAPCenterPanel::paint(Graphics& g)

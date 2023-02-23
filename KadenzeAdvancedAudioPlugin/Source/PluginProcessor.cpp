@@ -189,6 +189,7 @@ void KadenzeAdvancedAudioPluginAudioProcessor::processBlock (juce::AudioBuffer<f
             getParameter(kParameter_DelayTime),
             getParameter(kParameter_DelayFeedback),
             getParameter(kParameter_DelayWetDry),
+            getParameter(kParameter_DelayType),
             mLFO[channel]->getBuffer(),
             channelData,
             buffer.getNumSamples());

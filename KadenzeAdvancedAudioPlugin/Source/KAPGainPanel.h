@@ -20,10 +20,10 @@ public:
     ~KAPGainPanel();
 
     void setParameterID(int inParameterID);
-
-private:
     void paint(Graphics& g) override;
 
+private:
+    
     ScopedPointer <KAPParameterSlider> mSlider;
 
 };

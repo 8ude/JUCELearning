@@ -47,6 +47,7 @@ void KAPDelay::process(float* inAudio,
                        float inTime,                //delay time, in seconds 
                        float inFeedback, 
                        float inWetDry, 
+                       float inType,
                        float* inModulationBuffer,   //buffer from the LFO module 
                        float* outAudio, 
                        int inNumSamplesToRender)
@@ -57,12 +58,18 @@ void KAPDelay::process(float* inAudio,
 
     for (int i = 0; i < inNumSamplesToRender; i++)
     {
-        //for now our modulation is a +/- sine wave LFO
-        //the lfo is acting to modulate the delay time - give it a bit of warble. Right now 0.002 is acting as a magic number until we determine amplitude parameters
-        const double delayTimeModulation = (inTime + (0.002 * inModulationBuffer[i]));
-
-        //we apply smoothing to our delay time; this math is a bit confusing.
-        mTimeSmoothed = mTimeSmoothed - kParameterSmoothingCoeff_Fine * (mTimeSmoothed - delayTimeModulation);
+        if ((int)inType == kKAPDelayType_Delay)
+        {
+            //adjust the delay time gradually when it's changed by the user
+            mTimeSmoothed = mTimeSmoothed - kParameterSmoothingCoeff_Fine * (mTimeSmoothed - inTime);
+        }
+        else
+        {
+            //for now our modulation is a +/- sine wave LFO
+            //the lfo is acting to modulate the delay time - give it a bit of warble. Both 0.003 and 0.002 are magic numbers 
+            const double delayTimeModulation = (0.003 + (0.002 * inModulationBuffer[i]));
+            mTimeSmoothed = mTimeSmoothed - kParameterSmoothingCoeff_Fine * (mTimeSmoothed - delayTimeModulation);
+        }
 
         const double delayTimeInSamples = mSampleRate * mTimeSmoothed;
 

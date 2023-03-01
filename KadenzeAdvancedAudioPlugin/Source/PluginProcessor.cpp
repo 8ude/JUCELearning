@@ -177,7 +177,7 @@ void KadenzeAdvancedAudioPluginAudioProcessor::processBlock (juce::AudioBuffer<f
             channelData, 
             buffer.getNumSamples());
 
-        float rate = (channel == 0) ? 0 : getParameter(kParameter_ModulationRate);
+        float rate = (channel == 0) ? getParameter(kParameter_ModulationRate) : 0;
 
         mLFO[channel]->process(
             rate, 

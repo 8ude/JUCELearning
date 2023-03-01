@@ -4,6 +4,12 @@
               useAppConfig="0" addUsingNamespaceToJuceHeader="1" displaySplashScreen="1"
               jucerFormatVersion="1" pluginFormats="buildAU,buildVST3" pluginManufacturer="Corey">
   <MAINGROUP id="OWx5io" name="KadenzeAdvancedAudioPlugin">
+    <GROUP id="{D0CD384B-A2AE-431C-8C2B-B1D9797EF626}" name="Managers">
+      <FILE id="QkgsT2" name="KAPPresetManager.cpp" compile="1" resource="0"
+            file="Source/KAPPresetManager.cpp"/>
+      <FILE id="DD1UAi" name="KAPPresetManager.h" compile="0" resource="0"
+            file="Source/KAPPresetManager.h"/>
+    </GROUP>
     <GROUP id="{5539D788-8599-4A0C-9638-345F93EE446D}" name="Parameter Control">
       <FILE id="E5uyMU" name="KAPParameterComboBox.cpp" compile="1" resource="0"
             file="Source/KAPParameterComboBox.cpp"/>

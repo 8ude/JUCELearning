@@ -13,7 +13,17 @@
 
 class KAPPresetManager
 {
+public:
     //using generic JUCE audio processor instead of our custom plugin processor
     //we want all our processor interaction to handled on the generic level
     KAPPresetManager(AudioProcessor* inProcessor);
+    ~KAPPresetManager();
+
+    void getXmlForPreset(XmlElement* inElement);
+
+    void loadXmlForPreset(XmlElement* inElement);
+
+private:
+
+    AudioProcessor* mProcessor;
 };

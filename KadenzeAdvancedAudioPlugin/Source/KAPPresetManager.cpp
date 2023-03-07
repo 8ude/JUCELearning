@@ -9,3 +9,22 @@
 */
 
 #include "KAPPresetManager.h"
+KAPPresetManager::KAPPresetManager(AudioProcessor* inProcessor)
+    : mProcessor(inProcessor)
+{
+
+}
+KAPPresetManager::~KAPPresetManager()
+{
+
+}
+
+void KAPPresetManager::getXmlForPreset(XmlElement* inElement)
+{
+    const int numParameters = mProcessor->getNumParameters();
+}
+
+void KAPPresetManager::loadXmlForPreset(XmlElement* inElement)
+{
+
+}

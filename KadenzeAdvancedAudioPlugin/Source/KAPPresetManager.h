@@ -25,5 +25,7 @@ public:
 
 private:
 
+    XmlElement* mCurrentPresetXml;
     AudioProcessor* mProcessor;
+    
 };

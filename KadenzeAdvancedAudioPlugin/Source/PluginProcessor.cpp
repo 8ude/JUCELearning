@@ -27,6 +27,8 @@ KadenzeAdvancedAudioPluginAudioProcessor::KadenzeAdvancedAudioPluginAudioProcess
     initializeParameters();
 
     initializeDSP();
+
+    mPresetManager = new KAPPresetManager(this);
 }
 
 KadenzeAdvancedAudioPluginAudioProcessor::~KadenzeAdvancedAudioPluginAudioProcessor()

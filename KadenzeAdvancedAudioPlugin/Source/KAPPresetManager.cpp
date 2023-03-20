@@ -10,9 +10,18 @@
 
 #include "KAPPresetManager.h"
 KAPPresetManager::KAPPresetManager(AudioProcessor* inProcessor)
-    : mProcessor(inProcessor)
+:   mCurrentPresetIsSaved(false),
+    mCurrentPresetName("Untitled"),
+    mProcessor(inProcessor)
 {
+    const String pluginName = (String)mProcessor->getName();
 
+    mPresetDirectory = (File::getSpecialLocation(File::userDesktopDirectory)).getFullPathName() + pluginName;
+
+    if (!File(mPresetDirectory).exists())
+    {
+        File(mPresetDirectory).createDirectory();
+    }
 }
 KAPPresetManager::~KAPPresetManager()
 {
@@ -30,7 +39,7 @@ void KAPPresetManager::getXmlForPreset(XmlElement* inElement)
     }
 }
 
-void KAPPresetManager::loadXmlForPreset(XmlElement* inElement)
+void KAPPresetManager::loadPresetForXml(XmlElement* inElement)
 {
     mCurrentPresetXml = inElement;
 
@@ -50,4 +59,49 @@ void KAPPresetManager::loadXmlForPreset(XmlElement* inElement)
             }
         }
     }
+}
+
+int KAPPresetManager::getNumberOfPresets()
+{
+    return 0;
+}
+
+String KAPPresetManager::getPresetName(int inPresetIndex)
+{
+    return "none";
+}
+
+void KAPPresetManager::createNewPreset()
+{
+
+}
+
+void KAPPresetManager::savePreset()
+{
+
+}
+
+void KAPPresetManager::saveAsPreset(String inPresetName)
+{
+
+}
+
+void KAPPresetManager::loadPreset(int inPresetIndex)
+{
+
+}
+
+bool KAPPresetManager::getIsCurrentPresetSaved()
+{
+    return 0;
+}
+
+String KAPPresetManager::getCurrentPresetName()
+{
+    return "none";
+}
+
+void KAPPresetManager::storeLocalPreset()
+{
+
 }

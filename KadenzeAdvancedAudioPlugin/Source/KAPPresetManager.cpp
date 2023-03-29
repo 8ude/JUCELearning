@@ -22,6 +22,8 @@ KAPPresetManager::KAPPresetManager(AudioProcessor* inProcessor)
     {
         File(mPresetDirectory).createDirectory();
     }
+
+    storeLocalPreset();
 }
 KAPPresetManager::~KAPPresetManager()
 {
@@ -63,17 +65,22 @@ void KAPPresetManager::loadPresetForXml(XmlElement* inElement)
 
 int KAPPresetManager::getNumberOfPresets()
 {
-    return 0;
+    return mLocalPresets.size();
 }
 
 String KAPPresetManager::getPresetName(int inPresetIndex)
 {
-    return "none";
+    return mLocalPresets[inPresetIndex].getFileNameWithoutExtension();
 }
 
 void KAPPresetManager::createNewPreset()
 {
+    const int numParameters = mProcessor->getNumParameters();
 
+    for (int i = 0; i < numParameters; i++)
+    {
+
+    }
 }
 
 void KAPPresetManager::savePreset()

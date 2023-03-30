@@ -79,18 +79,27 @@ void KAPPresetManager::createNewPreset()
 
     for (int i = 0; i < numParameters; i++)
     {
-
+        mProcessor->setParameterNotifyingHost(i, mProcessor->getParameterDefaultValue(i));
     }
+
+    mCurrentPresetIsSaved = false;
+    mCurrentPresetName = "Untitled";
 }
 
 void KAPPresetManager::savePreset()
 {
+    MemoryBlock destinationData;
+    mProcessor->getStateInformation(destinationData);
 
+    mCurrentlyLoadedPreset.deleteFile();
+
+    mCurrentlyLoadedPreset.appendData(destinationData.getData(),
+                                       destinationData.getSize());
 }
 
 void KAPPresetManager::saveAsPreset(String inPresetName)
 {
-
+    File presetFile = File(mPresetDirectory + inPresetName);
 }
 
 void KAPPresetManager::loadPreset(int inPresetIndex)

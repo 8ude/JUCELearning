@@ -9,6 +9,13 @@
 */
 
 #include "KAPPresetManager.h"
+
+#if JUCE_WINDOWS
+    static const String directorySeparator = "\\";
+#elif JUCE_MAC
+    static const String directorySeparator = "/";
+#endif
+
 KAPPresetManager::KAPPresetManager(AudioProcessor* inProcessor)
 :   mCurrentPresetIsSaved(false),
     mCurrentPresetName("Untitled"),
@@ -99,7 +106,27 @@ void KAPPresetManager::savePreset()
 
 void KAPPresetManager::saveAsPreset(String inPresetName)
 {
-    File presetFile = File(mPresetDirectory + inPresetName);
+    File presetFile = File(mPresetDirectory + directorySeparator + inPresetName);
+
+    if (!presetFile.exists())
+    {
+        presetFile.create();
+    }
+    else
+    {
+        presetFile.deleteFile();
+    }
+
+    MemoryBlock destinationData;
+    mProcessor->getStateInformation(destinationData);
+
+    presetFile.appendData(destinationData.getData(),
+        destinationData.getSize());
+
+    mCurrentPresetIsSaved = true;
+    mCurrentPresetName = inPresetName;
+
+    storeLocalPreset();
 }
 
 void KAPPresetManager::loadPreset(int inPresetIndex)

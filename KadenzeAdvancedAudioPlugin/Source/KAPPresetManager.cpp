@@ -102,6 +102,8 @@ void KAPPresetManager::savePreset()
 
     mCurrentlyLoadedPreset.appendData(destinationData.getData(),
                                        destinationData.getSize());
+
+    mCurrentPresetIsSaved = true;
 }
 
 void KAPPresetManager::saveAsPreset(String inPresetName)
@@ -131,20 +133,39 @@ void KAPPresetManager::saveAsPreset(String inPresetName)
 
 void KAPPresetManager::loadPreset(int inPresetIndex)
 {
+    mCurrentlyLoadedPreset = mLocalPresets[inPresetIndex];
 
+    MemoryBlock presetBinary;
+
+    if (mCurrentlyLoadedPreset.loadFileAsData(presetBinary))
+    {
+        mCurrentPresetIsSaved = true;
+        mCurrentPresetName = getPresetName(inPresetIndex);
+        mProcessor->setStateInformation(presetBinary.getData(), 
+                                        presetBinary.getSize());
+    }
 }
 
 bool KAPPresetManager::getIsCurrentPresetSaved()
 {
-    return 0;
+    return mCurrentPresetIsSaved;
 }
 
 String KAPPresetManager::getCurrentPresetName()
 {
-    return "none";
+    return mCurrentPresetName;
 }
 
 void KAPPresetManager::storeLocalPreset()
 {
+    mLocalPresets.clear();
 
+    for (DirectoryIterator di(File(mPresetDirectory),
+        false,
+        '*' + (String)PRESET_FILE_EXTENTION,
+        File::TypesOfFileToFind::findFiles); di.next();)
+    {
+        File preset = di.getFile();
+        mLocalPresets.add(preset);
+    }
 }

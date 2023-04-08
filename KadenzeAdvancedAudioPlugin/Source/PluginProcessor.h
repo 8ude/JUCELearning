@@ -60,6 +60,11 @@ public:
 
     AudioProcessorValueTreeState parameters;
 
+    KAPPresetManager* getPresetManager()
+    {
+        return mPresetManager;
+    }
+
 private:
     //==============================================================================
     /** interanal **/

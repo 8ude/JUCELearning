@@ -93,6 +93,7 @@ void KAPPresetManager::createNewPreset()
     mCurrentPresetName = "Untitled";
 }
 
+//does this work if user accidentally clicks "Save" instead of "Save As"?
 void KAPPresetManager::savePreset()
 {
     MemoryBlock destinationData;
@@ -108,7 +109,7 @@ void KAPPresetManager::savePreset()
 
 void KAPPresetManager::saveAsPreset(String inPresetName)
 {
-    File presetFile = File(mPresetDirectory + directorySeparator + inPresetName);
+    File presetFile = File(mPresetDirectory + directorySeparator + inPresetName + PRESET_FILE_EXTENTION);
 
     if (!presetFile.exists())
     {

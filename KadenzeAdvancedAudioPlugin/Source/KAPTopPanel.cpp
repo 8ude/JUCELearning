@@ -118,6 +118,8 @@ void KAPTopPanel::updatePresetComboBox()
     {
         mPresetDisplay->addItem(presetManager->getPresetName(i), i + 1); //combo box id's cannot be 0
     }
+
+    mPresetDisplay->setText(presetManager->getCurrentPresetName());
 }
 
 void KAPTopPanel::paint(Graphics& g)

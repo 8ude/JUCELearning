@@ -23,7 +23,7 @@ KAPPresetManager::KAPPresetManager(AudioProcessor* inProcessor)
 {
     const String pluginName = (String)mProcessor->getName();
 
-    mPresetDirectory = (File::getSpecialLocation(File::userDesktopDirectory)).getFullPathName() + pluginName;
+    mPresetDirectory = (File::getSpecialLocation(File::userDesktopDirectory)).getFullPathName() + directorySeparator + pluginName;
 
     if (!File(mPresetDirectory).exists())
     {

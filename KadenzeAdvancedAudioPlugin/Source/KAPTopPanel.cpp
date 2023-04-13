@@ -60,6 +60,7 @@ KAPTopPanel::~KAPTopPanel()
 
 }
 
+//inhereted from juce Button::Listener
 void KAPTopPanel::buttonClicked(Button* b)
 {
     KAPPresetManager* presetManager = mProcessor->getPresetManager();
@@ -79,6 +80,7 @@ void KAPTopPanel::buttonClicked(Button* b)
     }
 }
 
+//inhereted from ComboBox::Listener
 void KAPTopPanel::comboBoxChanged(ComboBox* comboBoxThatHasChanged)
 {
     if (comboBoxThatHasChanged == mPresetDisplay)

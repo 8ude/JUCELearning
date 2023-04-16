@@ -68,6 +68,8 @@ void KAPTopPanel::buttonClicked(Button* b)
     if (b == mNewPreset)
     {
         presetManager->createNewPreset();
+
+        updatePresetComboBox();
     }
     else if (b == mSavePreset)
     {

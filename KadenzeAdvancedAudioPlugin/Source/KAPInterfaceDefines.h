@@ -8,6 +8,8 @@
   ==============================================================================
 */
 
+#include "JuceHeader.h"
+
 #pragma once
 //helpers are being used to change global values app-wide
 
@@ -29,3 +31,10 @@
 #define EFFECTS_PANEL_WIDTH     CENTER_PANEL_WIDTH
 #define EFFECTS_PANEL_HEIGHT    CENTER_PANEL_HEIGHT - CENTER_PANEL_MENU_BAR_HEIGHT
 
+const Colour KAPColour_1 = Colour(105, 105, 105);
+const Colour KAPColour_2 = Colour(0, 0, 0).withAlpha(0.3f);
+const Colour KAPColour_3 = Colour(0, 0, 0).withAlpha(0.3f);
+const Colour KAPColour_4 = Colour(0, 0, 0).withAlpha(0.6f);
+const Colour KAPColour_5 = Colour(105, 105, 105).withAlpha(0.3f);
+const Colour KAPColour_6 = Colour(0, 0, 0).withAlpha(0.8f);
+const Colour KAPColour_7 = Colour(125, 125, 125);
